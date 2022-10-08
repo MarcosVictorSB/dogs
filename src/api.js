@@ -36,3 +36,16 @@ export const USER_GET = (token) => {
     }
   }
 }
+
+export const USER_POST = (body) => {
+  return {
+    url: APi_URL + '/api/user',
+    options: {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body)
+    }
+  }
+}
