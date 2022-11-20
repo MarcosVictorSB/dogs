@@ -1,6 +1,7 @@
 export const APi_URL = 'https://dogsapi.origamid.dev/json'
 
 export const TOKEN_POST = (body) => {
+
   return {
     url: APi_URL + '/jwt-auth/v1/token',
     options: {
@@ -85,17 +86,6 @@ export const PHOTO_GET = (id) => {
 }
 
 export const COMMENT_POST = (id, body) => {
-  console.log({
-    url: `${APi_URL}/api/comment/${id}`,
-    options: {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + window.localStorage.getItem('token'),
-      },
-      body: JSON.stringify(body)
-    }
-  })
   return {
     url: `${APi_URL}/api/comment/${id}`,
     options: {
@@ -105,6 +95,19 @@ export const COMMENT_POST = (id, body) => {
         Authorization: 'Bearer ' + window.localStorage.getItem('token'),
       },
       body: JSON.stringify(body)
+    }
+  }
+}
+
+export const PHOTO_DELETE = (id) => {
+  return {
+    url: `${APi_URL}/api/photo/${id}`,
+    options: {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + window.localStorage.getItem('token'),
+      },
     }
   }
 }

@@ -28,7 +28,7 @@ export const UserStorage = ({ children }) => {
 
       const { url, options } = TOKEN_POST({ username, password })
       const tokenRes = await fetch(url, options)
-      if (!tokenRes.ok) throw new error(`Error: ${tokenRes.statusText}`)
+      if (!tokenRes.ok) throw new Error(`Acesso negado`)
 
       const { token } = await tokenRes.json();
       window.localStorage.setItem('token', token)
